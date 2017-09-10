@@ -51,6 +51,21 @@ Nele também é possível publicar uma imagem docker
 * --link <nome-container>:<nome-aplicacao-no-novo-container> : através do link pode-se linkar containers, informando o nome do container a ser linkado: nome da aplicação no container a ser criado.
 	* a partir do nome do servidor linkado (qualquer um dos dois nomes do mesmo servidor) é possível realizar o acesso a aplicação. Por exemplo, se essa aplicação linkada for um banco de dados mysql, basta informar o nome desta aplicação como host, para que a conexão seja estabelecida.
 
+# Trabalhando com dockerfile
 
+O dockerfile é um arquivo que orienta na criação de imagens.
 
+é necessário criar um arquivo Dockerfile (não possui extensão). Nele deve-se definir configurações para o arquivo.
 
+configurações comuns no Dockerfile:
+
+* FROM: indica imagem de origem do dockerfile. Exemplo: `FROM php:7.0-apache`
+* MAINTAINER: indica o email do administrador da imagem
+* RUN: informa comandos a serem executados aṕós a criação da imagem. Exemplo `RUN apt update && apt install -y vim`
+* WORKDIR <diretório>: informa o diretório de trabalho
+* ADD <arquivo> <destino>: adiciona um arquivo da máquina local (ou host) para o destino informado no container.
+* CMD ["<arquivo>"]: executa scripts existentes no container.
+
+Comandos para se buildar o container
+* docker build -t <usuario-docker-hub>/<nome-imagem> <diretorio-dockerfile>: 
+* docker build <usuario-docker-hub>/<nome-imagem>:v2 : esse v2 é apenas uma descrição de nova versão, pode ser v1, v3, vX, xpto, charlinho e teresa.
