@@ -32,6 +32,11 @@ Nele também é possível publicar uma imagem docker
 * docker-machine ls: mostra configurações do docker
 * --name <contanier-name>: parâmetro que atribui um nome a um container, ao invés de permitir que o docker crie um automaticamente.
 
+# Trabalhando de forma interativa com exec
+
+* docker exec <container> <comando>: executa um comando linux dentro de um container
+* docker exec -it <container> bash: executa o container de forma interativa, como se fosse uma conexão ssh, mas não é.
+
 
 
 
