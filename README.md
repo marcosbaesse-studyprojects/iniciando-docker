@@ -69,3 +69,40 @@ configurações comuns no Dockerfile:
 Comandos para se buildar o container
 * docker build -t <usuario-docker-hub>/<nome-imagem> <diretorio-dockerfile>: 
 * docker build <usuario-docker-hub>/<nome-imagem>:v2 : esse v2 é apenas uma descrição de nova versão, pode ser v1, v3, vX, xpto, charlinho e teresa.
+
+# Trabalhando com docker-compose
+
+A indentação dos arquivos yml são importantes!
+
+uma estrutura de docker-compose.yml
+`
+version: '2'
+services:
+  db:
+    image: mysql:5.7
+    volumes:
+      - "./.data/db:/var/lib/mysql" # os arquivos do mysql ficam guardados no host em ./.data/db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: mydb
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
+
+  web:
+    volumes:
+      - "./src:/var/www/html" # os arquivos de /var/www/html do container ficam armazenados em ./src do host
+    depends_on:
+      - db
+    image: my-php
+    links:
+      - db
+    ports:
+      - "8000:80"
+    restart: always
+`
+
+Para criar os conatainer a partir do docker compose, basta executar:
+* docker-compose up -d
+
+
