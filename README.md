@@ -21,4 +21,17 @@ Imagem é diferente de container!
 * docker ps -a: lista todos os containers, inclusive que não estão rodando, com os detalhes.
 * docker rm <CONTAINER ID>: remove um containner.
 
+# Criando container do Nginx e expondo porta
+
+No docker hub, é possível pesquisar imagens de docker disponíveis.
+Nele também é possível publicar uma imagem docker
+
+* docker run <imagem>: baixa e roda a imagem informada
+* docker run <imagem> -d: roda a imagem em background
+* docker run -d -p porta-host:porta-container <imagem>: informa em qual porta da máquina será correspondente à porta do serviço instalado com o docker.i
+* docker-machine ls: mostra configurações do docker
+* --name <contanier-name>: parâmetro que atribui um nome a um container, ao invés de permitir que o docker crie um automaticamente.
+
+
+
 
