@@ -75,7 +75,7 @@ Comandos para se buildar o container
 A indentação dos arquivos yml são importantes!
 
 uma estrutura de docker-compose.yml
-`
+```yml
 version: '2'
 services:
   db:
@@ -100,7 +100,7 @@ services:
     ports:
       - "8000:80"
     restart: always
-`
+```
 
 Para criar os conatainer a partir do docker compose, basta executar:
 * docker-compose up -d
