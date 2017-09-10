@@ -45,5 +45,12 @@ Nele também é possível publicar uma imagem docker
 * docker run -d --name webserver2 -p 8081:80 -v /home/user-host/workspace:/usr/share/nginx/html: Cria um link da pasta html do container webserver2 para a pasta workspace do usuário user-host da host
 	* na hora de especificar a pasta do host, pode-se utilizar $(pwd)/workspace:/usr/share/nginx/
 
+# Linkando containers na prática com wordpress
+
+* -e "VARIAVEL_X" -e "VARIAVEL_Y": alguns containers dependem de variáveis de ambiente, e várias variáveis podem ser passadas para um container.
+* --link <nome-container>:<nome-aplicacao-no-novo-container> : através do link pode-se linkar containers, informando o nome do container a ser linkado: nome da aplicação no container a ser criado.
+	* a partir do nome do servidor linkado (qualquer um dos dois nomes do mesmo servidor) é possível realizar o acesso a aplicação. Por exemplo, se essa aplicação linkada for um banco de dados mysql, basta informar o nome desta aplicação como host, para que a conexão seja estabelecida.
+
+
 
 
